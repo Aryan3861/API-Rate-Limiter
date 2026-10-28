@@ -6,7 +6,7 @@ redis_client:Redis | None=None
 # connect
 async def init_redis()->None:
     global pool,redis_client
-    pool=ConnectionPool.fromurl(settings.redis_url,decode_responses=True)
+    pool=ConnectionPool.from_url(settings.redis_url,decode_responses=True)
     redis_client=Redis(connection_pool=pool)
     await redis_client.ping()
 
